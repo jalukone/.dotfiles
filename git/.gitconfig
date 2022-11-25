@@ -1,0 +1,7 @@
+[user]
+	name = JalukOne
+	email = jalukone@outlook.com
+[core]
+    editor = nvim
+[init]
+	defaultBranch = main
