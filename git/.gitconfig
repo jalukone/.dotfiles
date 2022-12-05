@@ -5,3 +5,5 @@
     editor = nvim
 [init]
 	defaultBranch = main
+[https]
+	proxy = proxy-listen-ip:proxy-listen-port

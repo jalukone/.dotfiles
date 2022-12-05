@@ -92,7 +92,7 @@ local config = {
       bg = "#1e222a",
     },
     highlights = function(hl) -- or a function that returns a new table of colors to set
-      local C = require "default_theme.colors"
+      local C = require("default_theme.colors")
 
       hl.Normal = { fg = C.fg, bg = C.bg }
 
@@ -219,7 +219,19 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
-      {'folke/tokyonight.nvim'}
+      { "folke/tokyonight.nvim" },
+      {
+        "xiyaowong/nvim-transparent",
+        config = function()
+          require("transparent").setup({
+            enable = true, -- boolean: enable transparent
+            extra_groups = { -- table/string: additional groups that should be cleared
+              -- example of akinsho/nvim-bufferline.lua
+            },
+            exclude = {}, -- table: groups you don't want to clear
+          })
+        end,
+      },
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
       -- { "andweeb/presence.nvim" },
@@ -264,6 +276,10 @@ local config = {
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
       -- ensure_installed = { "prettier", "stylua" },
+    },
+    ["indent-o-matic"] = {
+      max_lines = 2048,
+      standard_widths = { 2 },
     },
   },
 
